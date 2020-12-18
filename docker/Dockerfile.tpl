@@ -1,5 +1,3 @@
-FROM #{FROM}
-
 ENTRYPOINT /usr/bin/supervisord
 
 # Default values for config environment variables
@@ -39,7 +37,7 @@ WORKDIR /src
 
 # Check out code we rely on and install play! dependencies
 RUN git clone -q https://github.com/openseedbox/openseedbox-common \
-	&& git clone --depth=1 -q https://github.com/openseedbox/openseedbox \
+	&& git clone --depth=1 -q https://github.com/stickz/openseedbox \
 	&& /play/play deps openseedbox-common --sync \
 	&& /play/play deps openseedbox --sync
 
