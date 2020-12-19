@@ -1,3 +1,5 @@
+FROM #{FROM}
+
 ENTRYPOINT /usr/bin/supervisord
 
 # Default values for config environment variables
@@ -36,7 +38,7 @@ RUN /play/play install siena-2.0.7 || echo "Downloading directly ... " \
 WORKDIR /src
 
 # Check out code we rely on and install play! dependencies
-RUN git clone -q https://github.com/openseedbox/openseedbox-common \
+RUN git clone -q https://github.com/stickz/openseedbox-common \
 	&& git clone --depth=1 -q https://github.com/stickz/openseedbox \
 	&& /play/play deps openseedbox-common --sync \
 	&& /play/play deps openseedbox --sync
