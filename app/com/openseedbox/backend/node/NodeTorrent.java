@@ -144,11 +144,6 @@ public class NodeTorrent extends AbstractTorrent {
 	public void setStatus(TorrentState state) {
 		this.state = state;
 	}
-
-	public String getZipDownloadLink() {
-		return String.format("%s%s",
-				 node.getNodeDownloadUrl(), zipDownloadLink);
-	}	
 	
 	public void setZipDownloadLink(String link) {
 		this.zipDownloadLink = link;

@@ -23,18 +23,7 @@
 							${t.name.trimTo(45)} (${item.niceTotalSize})
 							<small>- ${item.niceStatus} ${item.niceSubStatus}</small>							
 						</h5>	
-						#{if (t.complete)}
-						<h5 class="torrent-speed pull-right">
-							<small>
-								[ <a class="download-button" data-torrent-hash="${t.torrentHash}" href="#">Download</a> ]
-								#{if com.openseedbox.Config.zipEnabled}
-								[ <span class="zip-percentage"></span>
-								  <a class="zip-button" href="#" data-torrent-hash="${t.torrentHash}">Zip</a> ]
-								#{/if}
-							</small>
-						</h5>					
-						#{/if}
-						#{elseif (t.running)}
+						#{if (t.running)}
 						<h5 class="torrent-progress pull-right hide">
 							<small>${Util.getBestRate(t.downloadSpeedBytes)}/s down, ${Util.getBestRate(t.uploadSpeedBytes)}/s up</small>
 						</h5>

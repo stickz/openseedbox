@@ -462,45 +462,6 @@ a.download-link, a.download-link:hover {
 			$(this).find(".hide").show();
 		}).on("mouseout", ".torrent-info", function() {
 			$(this).find(".hide").hide();
-		}).on("click", ".download-button", function() {
-			var hash = $(this).data("torrent-hash");
-			var oldhtml = $(this).html();
-			$(this).html("<img src='#{asset.ajax /}' />");
-			var self = this;
-			$.post("@{Client.torrentDownload}", { "hash" : hash }, function(data) {	
-				$("#torrent-download-modal").remove();
-				$("#container").append(data);
-				$("#torrent-download-modal").modal({
-					"backdrop" : false
-				});				
-				$(self).html(oldhtml);
-			});
-			return false;
-		}).on("click", ".zip-button", function() {
-			activeAjaxRequest.abort(); //incase one has already started when we click the link
-			$(this).html("<img src='#{asset.ajax /}' />");
-			var hash = $(this).data("torrent-hash");
-			var per = $(this).prev(".zip-percentage");
-			var self = this;
-			window.refresh_disabled = true;
-			var updatePercent = function() {
-				if ($(self).data("updating")) { return; }				
-				$(self).data("updating", true);				
-				$.getJSON("@{Client.torrentDownload}", { "hash" : hash, "type" : "zip" }, function(data) {
-					if (!data.data) { return; }
-					var complete = data.data["percent-complete"];
-					$(per).html(complete + "%");
-					$(self).data("updating", false);
-					if (complete == "100") {
-						clearInterval(theInterval);
-						window.refresh_disabled = false;												
-						document.location.href = data.data["download-link"];
-					}										
-				});
-			};
-			updatePercent();
-			theInterval = setInterval(updatePercent, 3000);
-			return false;
 		});	
 		
 		$("#torrent-groups").sortable({

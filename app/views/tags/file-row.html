@@ -7,13 +7,7 @@
 		#{else}
 			<i class="icon-file"></i>
 		#{/else}
-		#{if _file.file && _file.file.percentComplete == 1}
-			<a href="${_file.file.downloadLink}">
-		#{/if}
 		${_file.name}
-		#{if _file.file && _file.file.percentComplete == 1}
-			</a>
-		#{/if}
 	</td>
 	<td>		
 		#{if _file.file}
