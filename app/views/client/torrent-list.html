@@ -27,7 +27,7 @@
 						<h5 class="torrent-progress pull-right hide">
 							<small>${Util.getBestRate(t.downloadSpeedBytes)}/s down, ${Util.getBestRate(t.uploadSpeedBytes)}/s up</small>
 						</h5>
-						#{/elseif}
+						#{/if}
 						<div class="clearfix"></div>
 						#{if t.error}
 							<small class="text-error">${t.errorMessage}</small>
