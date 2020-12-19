@@ -250,8 +250,4 @@ public class Torrent extends ModelBase implements ITorrent {
 	public boolean isComplete() {
 		return getPercentComplete() == 1.0;
 	}
-
-	public void setZipDownloadLink(String zipDownloadLink) {
-		this.zipDownloadLink = zipDownloadLink;
-	}
 }
