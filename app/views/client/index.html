@@ -358,15 +358,6 @@ a.download-link, a.download-link:hover {
 			}
 		});
 		
-		$("#download-as-zip-button").click(function() {
-			var ch = checked_hashes();
-			if (ch.length > 0) {
-				if (confirm("Are you sure you want to download these " + ch.length + " torrents as a combined zip?")) {
-					document.location.href = "@{Client.downloadMultiple}?hashes=" + ch.join(",");
-				}
-			}
-		});
-		
 		$(".search").each(function() {
 			var provider = $(this).data("provider-class");
 			$(this).typeahead({

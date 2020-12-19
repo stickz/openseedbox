@@ -337,33 +337,6 @@ public class Client extends Base {
 		index(null);
 	}
 	
-	public static void downloadMultiple(@As(",") List<String> hashes, String debug) {
-		if (!Config.isZipEnabled()) {
-			notFound("Zip has been disabled.");
-		}
-		//Since the torrents are spread out over multiple nodes, we cant zip up multiple torrents into a single zip at the node level
-		//Basically, we send HEAD requests to get the Content-Length, and then point nginx's mod_zip to an internal route that makes nginx fetch the torrent zip files from the upstream server
-		if (hashes == null || hashes.isEmpty()) {
-			notFound("Please specify some hashes.");
-		}
-		String all = "";
-		for (Torrent t : Torrent.getByHash(hashes)) {
-			String link = t.getZipDownloadLink();			
-			String len = WS.url(link).head().getHeader("Content-Length");
-			//strip scheme and replace localhost with 127.0.0.1 so nginx resolver doesnt time out
-			link = link.replace("http://", "").replace("https://", "").replace("localhost", "127.0.0.1");
-			link += "&scheme=" + t.getNode().getScheme(); //note: we specify scheme here to help nginx incase the frontend is running on http and the backend is running on https
-			//no CRC32 because theres no way of knowing the CRC32 of the upstream zipfiles without downloading them first
-			all += String.format("- %s %s/%s /%s\n", len, Config.getZipPath(), link, t.getName() + ".zip");
-		}
-		if (!Config.isZipManifestOnly() && debug == null) {
-			response.setHeader("X-Archive-Files", "zip"); //tell NGINX to create us a zip
-			response.setHeader("Content-Disposition", "attachment; filename=\"" + UUID.randomUUID().toString() + ".zip" + "\"");
-		}
-		response.setHeader("Last-Modified", Util.getLastModifiedHeader(System.currentTimeMillis()));
-		renderText(all);
-	}
-	
 	//intended to be called via ajax
 	public static void updateGroupOrder(List<String> newOrder) {
 		if (newOrder != null && !newOrder.isEmpty()) {
