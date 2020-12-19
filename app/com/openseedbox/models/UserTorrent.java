@@ -313,13 +313,6 @@ public class UserTorrent extends ModelBase {
 			return total;
 		}
 
-		public String getDownloadLink() {
-			if (this.file != null) {
-				return this.file.getDownloadLink();
-			}
-			return null;
-		}
-
 		/* Getters and Setters */
 		public String getName() {
 			return name;
