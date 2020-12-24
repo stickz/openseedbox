@@ -1,4 +1,4 @@
-FROM resin/amd64-debian:jessie
+FROM balenalib/amd64-debian-node
 
 ENTRYPOINT /usr/bin/supervisord
 
