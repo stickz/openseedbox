@@ -54,6 +54,7 @@ RUN git clone -q https://github.com/stickz/openseedbox-common \
 RUN apt-get -qq update \
 	&& apt-get -qq install -y \
 		build-essential libpcre3-dev libssl-dev \
+	&& apt-get -qq install -y --reinstall zlibc zlib1g zlib1g-dev \
 	&& apt-get -y clean \
 	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
 	&& git clone --depth=1 -q https://github.com/evanmiller/mod_zip \
