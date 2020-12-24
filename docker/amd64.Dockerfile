@@ -17,7 +17,7 @@ RUN for i in 1 2 3 4 5 6 7 8; do mkdir -p /usr/share/man/man$i; done;
 # Install runtime packages
 RUN apt-get -qq update \
 	&& apt-get -qq install -y \
-		curl wget unzip git openjdk-7-jre-headless \
+		curl wget unzip git openjdk-7-jre \
 		python supervisor \
 	&& apt-get -y clean \
 	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
