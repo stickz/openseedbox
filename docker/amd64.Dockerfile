@@ -29,7 +29,7 @@ RUN wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | a
 	&& apt-get -qq install -y adoptopenjdk-8-hotspot
 
 # Add the java home environment varriable
-ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre
+RUN export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre
 
 # Install play
 RUN wget -q -O play.zip "https://downloads.typesafe.com/play/1.3.4/play-1.3.4.zip" \
