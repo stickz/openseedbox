@@ -93,13 +93,13 @@ public class NodeTorrent extends AbstractTorrent {
 		return _peers;
 	}
 
-	private transient List<ITracker> _trackers;
+	/*private transient List<ITracker> _trackers;
 	public List<ITracker> getTrackers() {
 		if (_trackers == null) {
 			_trackers = node.getNodeBackend().getTorrentTrackers(this.getTorrentHash());
 		}
 		return _trackers;
-	}
+	}*/
 
 	public void setName(String name) {
 		this.name = name;
