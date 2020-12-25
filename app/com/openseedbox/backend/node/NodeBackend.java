@@ -183,7 +183,7 @@ public class NodeBackend implements ITorrentBackend {
 		return ret;
 	}
 
-	public List<ITracker> getTorrentTrackers(String hash) {
+	/*public List<ITracker> getTorrentTrackers(String hash) {
 		return getTorrentTrackers(Arrays.asList(new String[] { hash })).get(hash);
 	}
 
@@ -193,7 +193,7 @@ public class NodeBackend implements ITorrentBackend {
 		java.lang.reflect.Type listType = new TypeToken<HashMap<String, ArrayList<NodeTracker>>>() {}.getType();
 		Map<String, List<ITracker>> ret = Util.getGson().fromJson(files, listType);
 		return ret;
-	}
+	}*/
 
 	public List<IFile> getTorrentFiles(String hash) {
 		return getTorrentFiles(Arrays.asList(new String[] { hash })).get(hash);

@@ -102,13 +102,13 @@ public class Torrent extends ModelBase implements ITorrent {
 		return state != TorrentState.PAUSED;
 	}
 	
-	private transient List<ITracker> _trackers;
+	/*private transient List<ITracker> _trackers;
 	public List<ITracker> getTrackers() {
 		if (_trackers == null) {
 			_trackers = this.getNode().getNodeBackend().getTorrentTrackers(this.getTorrentHash());
 		}
 		return _trackers;
-	}
+	}*/
 	
 	
 	private transient List<IFile> _files;

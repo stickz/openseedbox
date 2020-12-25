@@ -172,7 +172,7 @@ public class Client extends Base {
 				//trigger the caching of these objects, inside a job because the WS
 				//calls could take ages
 				fromDb.getTorrent().getPeers();
-				fromDb.getTorrent().getTrackers();
+				//fromDb.getTorrent().getTrackers();
 				fromDb.getTorrent().getFiles();
 				return fromDb;
 			}

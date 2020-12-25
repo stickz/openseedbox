@@ -76,14 +76,14 @@ public class ApiTorrents extends Api {
 	
 	/* GET /api/torrents/trackers?hash=foo
 	 * GET /api/torrents/trackers?hashes[]=foo&hashes[]=bar */	
-	public static void trackers(String hash, List<String> hashes) {
+	/*public static void trackers(String hash, List<String> hashes) {
 		List<UserTorrent> uts = getUsableHashes(hash, hashes);
 		Map<String, List<ITracker>> trackers = new HashMap<String, List<ITracker>>();
 		for (UserTorrent ut : uts) {
 			trackers.put(ut.getTorrentHash(), ut.getTorrent().getTrackers());
 		}
 		result(trackers);
-	}	
+	}*/	
 	
 	private static List<UserTorrent> getUsableHashes(String hash, List<String> hashes) {
 		validateOrError(hash, hashes);

@@ -7,7 +7,6 @@
 	<div class="modal-body">
 		<ul class="nav nav-tabs">
 			<li class="active"><a href="#torrent-files" data-toggle="tab">Files</a></li>
-			<li><a href="#torrent-trackers" data-toggle="tab">Trackers</a></li>
 			<li><a href="#torrent-peers" data-toggle="tab">Peers</a></li>
 			<li><a href="#torrent-stats" data-toggle="tab">Stats</a></li>
 		</ul>
@@ -28,49 +27,6 @@
 					#{/list}
 					</table>
 				#{/else}
-			</div>
-			<div class="tab-pane" id="torrent-trackers">
-		   /*	#{if (torrent.torrent.trackers.size > 0)}
-			*	<table class="table table-condensed table-striped">
-			*		<tr>
-			*			<th>Host</th>
-			*			<th>Status</th>
-			*			<th>Seeds</th>
-			*			<th>Leeches</th>
-			*			<th>Downloads</th>
-			*		</tr>
-			*		#{list items:torrent.torrent.trackers, as:"tracker"}
-			*		<tr>
-			*			<td>${tracker.host}</td>
-			*			<td>
-			*				#{if (tracker.lastAnnounceSuccessful)}
-			*					<span class="text-success">${tracker.lastAnnounceResult}</span>
-			*				#{/if}
-			*				#{else}
-			*					<span class="text-error">${tracker.lastAnnounceResult}</span>
-			*				#{/else}
-			*			</td>
-			*			<td>
-			*				#{if tracker.seederCount > -1}${tracker.seederCount}#{/if}
-			*				#{else}<span class="text-error">n/a</span>#{/else}
-			*			</td>
-			*			<td>
-			*				#{if tracker.leecherCount > -1}${tracker.leecherCount}#{/if}
-			*				#{else}<span class="text-error">n/a</span>#{/else}
-			*			</td>
-			*			<td>
-			*				#{if tracker.downloadCount > -1}${tracker.downloadCount}#{/if}
-			*				#{else}<span class="text-error">n/a</span>#{/else}
-			*			</td>
-			*		</tr>
-			*		#{/list}
-			*	</table>
-			*	#{/if}
-			*	#{else}
-			*		<p>No connected trackers.</p>
-			*	#{/else}
-			*/
-				<p>Sorry, Tranmission 3.00 has temporarly broken trackers.</p>
 			</div>
 			<div class="tab-pane" id="torrent-peers">
 				#{if (torrent.torrent.peers.size > 0)}
