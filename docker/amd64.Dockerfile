@@ -1,4 +1,4 @@
-FROM balenalib/amd64-debian-node
+FROM balenalib/amd64-debian:latest
 
 ENTRYPOINT /usr/bin/supervisord
 
