@@ -26,7 +26,7 @@ RUN apt-get -qq update \
 # Install adoptopenjdk-8-hotspot
 RUN apt-get -qq update && apt-get -qq install -y gnupg \
 	&& wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add - \
-	&& add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/ \
+	&& echo deb https://adoptopenjdk.jfrog.io/adoptopenjdk/deb $(. /etc/os-release && echo $VERSION_CODENAME) main > /etc/apt/sources.list.d/adoptopenjdk.list \
 	&& apt-get -qq update \
 	&& apt-get -qq install -y adoptopenjdk-8-hotspot-jre libatomic1 \
 	&& apt-get -qq purge -y gnupg \
