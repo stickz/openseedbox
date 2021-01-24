@@ -65,12 +65,11 @@ RUN apt-get -qq update \
 	&& wget -q -O nginx.tar.gz http://nginx.org/download/nginx-1.14.2.tar.gz \
 	&& tar -xf nginx.tar.gz \
 	&& cd nginx* \
-	&& CFLAGS="-O2"
-	&& ./configure --with-http_ssl_module --add-module=/src/mod_zip/ \
-		--prefix=/etc/nginx --conf-path=/etc/nginx/nginx.conf \
-		--error-log-path=/var/log/nginx/error.log --pid-path=/var/run/nginx.pid \
-		--http-log-path=/var/log/nginx/access.log --lock-path=/var/lock/nginx.lock \
-		--sbin-path=/usr/sbin/nginx --add-module=/src/headers-more-nginx-module \
+	&& CFLAGS="-O2" ./configure --with-http_ssl_module --add-module=/src/mod_zip/ \
+			--prefix=/etc/nginx --conf-path=/etc/nginx/nginx.conf \
+			--error-log-path=/var/log/nginx/error.log --pid-path=/var/run/nginx.pid \
+			--http-log-path=/var/log/nginx/access.log --lock-path=/var/lock/nginx.lock \
+			--sbin-path=/usr/sbin/nginx --add-module=/src/headers-more-nginx-module \
 	&& make && make -s install \
 	&& cd .. \
 	&& rm -fr nginx* mod_zip headers-more-nginx-module \
