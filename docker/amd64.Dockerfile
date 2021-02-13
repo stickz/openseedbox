@@ -1,4 +1,4 @@
-FROM balenalib/amd64-debian:buster
+FROM ubuntu:latest
 
 ENTRYPOINT /usr/bin/supervisord
 
